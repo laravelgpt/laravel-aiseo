@@ -1,0 +1,67 @@
+{
+    "name": "aiseo/laravel-aiseo",
+    "description": "Advanced AI-powered SEO package for Laravel with JSON-LD, OpenGraph, and Schema.org support",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "LaravelGPT",
+            "email": "info@laravelgpt.com",
+            "homepage": "https://laravelgpt.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^10.0|^11.0",
+        "illuminate/contracts": "^10.0|^11.0",
+        "guzzlehttp/guzzle": "^7.0",
+        "spatie/schema-org": "^3.0",
+        "spatie/laravel-package-tools": "^1.16",
+        "spatie/laravel-html": "^3.0",
+        "spatie/laravel-ray": "^2.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.0|^9.0",
+        "pestphp/pest": "^2.0",
+        "phpunit/phpunit": "^10.0",
+        "spatie/laravel-ray": "^2.0",
+        "nunomaduro/collision": "^7.0",
+        "phpstan/phpstan": "^1.10",
+        "laravel/pint": "^1.13"
+    },
+    "autoload": {
+        "psr-4": {
+            "AiSeo\\LaravelAiSeo\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AiSeo\\LaravelAiSeo\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "analyse": "vendor/bin/phpstan analyse",
+        "fix": "vendor/bin/pint"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AiSeo\\LaravelAiSeo\\AiSeoServiceProvider"
+            ],
+            "aliases": {
+                "AiSeo": "AiSeo\\LaravelAiSeo\\AiSeoFacade"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+} 
