@@ -2,6 +2,7 @@
 
 [![Latest Version](https://img.shields.io/packagist/v/aiseo/laravel-aiseo.svg?style=flat-square)](https://packagist.org/packages/aiseo/laravel-aiseo)
 [![Tests](https://github.com/laravelgpt/laravel-aiseo/actions/workflows/tests.yml/badge.svg)](https://github.com/laravelgpt/laravel-aiseo/actions/workflows/tests.yml)
+[![Laravel Version](https://img.shields.io/badge/Laravel-10.x%20%7C%2011.x%20%7C%2012.x-orange.svg)](https://laravel.com)
 
 Advanced AI-powered SEO package for Laravel with JSON-LD, OpenGraph, and Schema.org support.
 
@@ -20,7 +21,7 @@ Advanced AI-powered SEO package for Laravel with JSON-LD, OpenGraph, and Schema.
 ## Requirements
 
 - PHP >= 8.1
-- Laravel >= 10.0
+- Laravel ^10.0|^11.0|^12.0
 - Composer 2.x
 
 ## Installation
@@ -39,7 +40,9 @@ composer require spatie/laravel-package-tools:^1.16 \
     spatie/laravel-ray:^2.0 \
     spatie/schema-org:^3.0 \
     guzzlehttp/guzzle:^7.0 \
-    prism-php/prism:^1.0
+    prism-php/prism:^1.0 \
+    illuminate/support:^10.0|^11.0|^12.0 \
+    illuminate/contracts:^10.0|^11.0|^12.0
 ```
 
 3. Publish the configuration files:
