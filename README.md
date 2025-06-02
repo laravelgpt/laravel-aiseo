@@ -15,11 +15,12 @@ Advanced AI-powered SEO package for Laravel with JSON-LD, OpenGraph, and Schema.
 - 🤖 AI-powered SEO analysis
 - 🔄 Real-time SEO analysis
 - 🧪 Comprehensive test suite
+- 🧠 AI API integration (OpenAI, DeepSeek, Prism, etc.)
 
 ## Installation
 
 ```bash
-composer require aiseo/laravel-aiseo
+composer require aiseo/laravel-aiseo prism-php/prism
 ```
 
 ## Configuration
@@ -49,6 +50,19 @@ $analysis = AiSeo::analyzeContent($content, 'openai');
 
 // Real-time API
 Route::post('/api/seo/analyze', [SeoApiController::class, 'analyze']);
+```
+
+## AI Integration with Prism
+
+This package supports advanced AI SEO analysis using [Prism PHP](https://github.com/prism-php/prism). You can use Prism as an AI provider for content analysis, keyword suggestions, and more.
+
+Example:
+
+```php
+$analysis = AiSeo::analyzeContent($content, 'prism', [
+    'api_key' => env('PRISM_API_KEY'),
+    // ...other options
+]);
 ```
 
 ## Testing
