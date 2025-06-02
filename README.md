@@ -17,22 +17,50 @@ Advanced AI-powered SEO package for Laravel with JSON-LD, OpenGraph, and Schema.
 - 🧪 Comprehensive test suite
 - 🧠 AI API integration (OpenAI, DeepSeek, Prism, etc.)
 
+## Requirements
+
+- PHP >= 8.1
+- Laravel >= 10.0
+- Composer 2.x
+
 ## Installation
 
+1. Install the package via Composer:
+
 ```bash
-composer require aiseo/laravel-aiseo prism-php/prism
+composer require aiseo/laravel-aiseo
 ```
 
-Publish the configuration files:
+2. Install required dependencies:
+
+```bash
+composer require spatie/laravel-package-tools:^1.16 \
+    spatie/laravel-html:^3.0 \
+    spatie/laravel-ray:^2.0 \
+    spatie/schema-org:^3.0 \
+    guzzlehttp/guzzle:^7.0 \
+    prism-php/prism:^1.0
+```
+
+3. Publish the configuration files:
+
 ```bash
 php artisan vendor:publish --tag=aiseo-config
 php artisan vendor:publish --tag=prism-config
 ```
 
+4. Run migrations (if any):
+
+```bash
+php artisan migrate
+```
+
 ## Configuration
 
-Add to `.env`:
+Add to your `.env` file:
+
 ```env
+# AI SEO Configuration
 AISEO_DEFAULT_AUTHOR="Your Name"
 AISEO_PUBLISHER_NAME="Your Company"
 AISEO_LOGO_URL="https://your-domain.com/logo.png"
