@@ -23,6 +23,12 @@ Advanced AI-powered SEO package for Laravel with JSON-LD, OpenGraph, and Schema.
 composer require aiseo/laravel-aiseo prism-php/prism
 ```
 
+Publish the configuration files:
+```bash
+php artisan vendor:publish --tag=aiseo-config
+php artisan vendor:publish --tag=prism-config
+```
+
 ## Configuration
 
 Add to `.env`:
@@ -31,6 +37,13 @@ AISEO_DEFAULT_AUTHOR="Your Name"
 AISEO_PUBLISHER_NAME="Your Company"
 AISEO_LOGO_URL="https://your-domain.com/logo.png"
 AISEO_OPENAI_API_KEY="your-openai-key"
+
+# Prism Configuration
+PRISM_API_KEY="your-prism-api-key"
+PRISM_API_URL="https://api.prism.ai"
+PRISM_DEFAULT_MODEL="gpt-4"
+PRISM_CACHE_ENABLED=true
+PRISM_CACHE_TTL=3600
 ```
 
 ## Usage
@@ -60,8 +73,9 @@ Example:
 
 ```php
 $analysis = AiSeo::analyzeContent($content, 'prism', [
-    'api_key' => env('PRISM_API_KEY'),
-    // ...other options
+    'api_key' => config('prism.api_key'),
+    'model' => config('prism.models.default'),
+    'cache' => config('prism.cache.enabled'),
 ]);
 ```
 

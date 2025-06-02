@@ -4,15 +4,24 @@ namespace AiSeo\LaravelAiSeo;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Foundation\Application;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class AiSeoServiceProvider extends ServiceProvider
+class AiSeoServiceProvider extends PackageServiceProvider
 {
-    public function register(): void
+    public function configurePackage(Package $package): void
     {
-        $this->mergeConfigFrom(
-            __DIR__.'/../config/aiseo.php', 'aiseo'
-        );
+        $package
+            ->name('laravel-aiseo')
+            ->hasConfigFile()
+            ->hasConfigFile('prism')
+            ->hasViews()
+            ->hasMigration('create_ai_seo_tables')
+            ->hasCommand(AiSeoCommand::class);
+    }
 
+    public function packageRegistered(): void
+    {
         $this->app->singleton('aiseo', function (Application $app) {
             return new AiSeoService($app['config']);
         });
