@@ -3,12 +3,15 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/laravelgpt/laravel-aiseo.svg?style=flat-square)](https://packagist.org/packages/laravelgpt/laravel-aiseo)
 [![Total Downloads](https://img.shields.io/packagist/dt/laravelgpt/laravel-aiseo.svg?style=flat-square)](https://packagist.org/packages/laravelgpt/laravel-aiseo)
 [![Tests](https://github.com/laravelgpt/laravel-aiseo/actions/workflows/tests.yml/badge.svg)](https://github.com/laravelgpt/laravel-aiseo/actions/workflows/tests.yml)
+[![PHP Version](https://img.shields.io/packagist/php-v/laravelgpt/laravel-aiseo.svg?style=flat-square)](https://packagist.org/packages/laravelgpt/laravel-aiseo)
+[![Laravel Version](https://img.shields.io/badge/Laravel-10.x%20%7C%2011.x%20%7C%2012.x-orange.svg)](https://laravel.com)
+[![License](https://img.shields.io/packagist/l/laravelgpt/laravel-aiseo.svg?style=flat-square)](https://packagist.org/packages/laravelgpt/laravel-aiseo)
 
 An advanced AI-powered SEO tool for Laravel that provides comprehensive SEO optimization, structured data generation, and real-time analysis. This package integrates with Prism AI for enhanced content optimization and automated SEO improvements.
 
-## Features
+## 🚀 Features
 
-### Structured Data & Markup
+### 📊 Structured Data & Markup
 - JSON-LD Schema.org markup generation
 - OpenGraph meta tags automation
 - Twitter Card meta tags
@@ -17,7 +20,7 @@ An advanced AI-powered SEO tool for Laravel that provides comprehensive SEO opti
 - LocalBusiness and Event schemas
 - Rich Snippets optimization
 
-### AI-Powered Automation
+### 🤖 AI-Powered Automation
 - Content analysis and optimization
 - Keyword density analysis
 - SEO score calculation
@@ -27,7 +30,7 @@ An advanced AI-powered SEO tool for Laravel that provides comprehensive SEO opti
 - Internal linking suggestions
 - Content gap analysis
 
-### Real-Time Features
+### ⚡ Real-Time Features
 - Live SEO monitoring
 - Performance tracking
 - Automated sitemap generation
@@ -36,7 +39,7 @@ An advanced AI-powered SEO tool for Laravel that provides comprehensive SEO opti
 - Mobile optimization checks
 - Page speed analysis
 
-### Additional Features
+### 🛠️ Additional Features
 - Multi-language support
 - Activity logging
 - Backup functionality
@@ -52,13 +55,13 @@ An advanced AI-powered SEO tool for Laravel that provides comprehensive SEO opti
 - Google Calendar integration
 - Slack notifications
 
-## Requirements
+## 📋 Requirements
 
 - PHP 8.1 or higher
 - Laravel 10.x, 11.x, or 12.x
 - Composer 2.x
 
-## Installation
+## 📥 Installation
 
 You can install the package via composer:
 
@@ -94,24 +97,10 @@ composer require spatie/laravel-sitemap:^6.0 \
     spatie/laravel-settings:^2.0 \
     spatie/laravel-tags:^4.0 \
     spatie/laravel-translatable:^6.0 \
-    spatie/laravel-backup:^8.0 \
-    spatie/laravel-activitylog:^4.0 \
-    spatie/laravel-permission:^6.0 \
-    spatie/laravel-slack-alerts:^1.0 \
-    spatie/laravel-google-calendar:^4.0 \
-    spatie/laravel-newsletter:^5.0 \
-    spatie/laravel-webhook-client:^3.0 \
-    spatie/laravel-uptime-monitor:^4.0 \
-    spatie/laravel-analytics:^4.0 \
-    spatie/laravel-queueable-action:^2.0 \
-    spatie/laravel-query-builder:^5.0 \
-    spatie/laravel-settings:^2.0 \
-    spatie/laravel-tags:^4.0 \
-    spatie/laravel-translatable:^6.0 \
     prism-php/prism:^1.0
 ```
 
-## Configuration
+## ⚙️ Configuration
 
 Add the following to your `.env` file:
 
@@ -126,7 +115,7 @@ AISEO_GOOGLE_CALENDAR_ID="your-calendar-id"
 AISEO_NEWSLETTER_API_KEY="your-newsletter-api-key"
 ```
 
-## Usage
+## 📖 Usage
 
 ### Generate Article Schema
 
@@ -199,25 +188,25 @@ $analysis = AiSeo::realtime()
 ])
 ```
 
-## Testing
+## 🧪 Testing
 
 ```bash
 composer test
 ```
 
-## Contributing
+## 🤝 Contributing
 
 Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
-## Security
+## 🔒 Security
 
 If you discover any security related issues, please email security@laravelgpt.com instead of using the issue tracker.
 
-## Credits
+## 👥 Credits
 
 - [LaravelGPT](https://github.com/laravelgpt)
 - [All Contributors](../../contributors)
 
-## License
+## 📄 License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
