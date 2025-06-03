@@ -8,15 +8,33 @@ Advanced AI-powered SEO package for Laravel with JSON-LD, OpenGraph, and Schema.
 
 ## Features
 
-- 🎯 JSON-LD Schema.org markup
-- 🔍 OpenGraph meta tags
-- 📝 Meta tags generation
-- 📊 Content analysis with SEO scoring
-- 🗺️ XML sitemap generation
-- 🤖 AI-powered SEO analysis
-- 🔄 Real-time SEO analysis
-- 🧪 Comprehensive test suite
-- 🧠 AI API integration (OpenAI, DeepSeek, Prism, etc.)
+### 🎯 Structured Data & Markup
+- JSON-LD Schema.org markup generation
+- OpenGraph meta tags automation
+- Twitter Card meta tags
+- Article, Product, Organization schemas
+- BreadcrumbList and FAQPage schemas
+- LocalBusiness and Event schemas
+- Rich Snippets optimization
+
+### 🤖 AI-Powered Automation
+- Content analysis and optimization
+- Keyword density analysis
+- SEO score calculation
+- Competitor analysis
+- Title and meta description generation
+- Image alt text optimization
+- Internal linking suggestions
+- Content gap analysis
+
+### 🔄 Real-time Features
+- Live SEO monitoring
+- Performance tracking
+- Automated sitemap generation
+- Robots.txt management
+- Canonical URL handling
+- Mobile optimization checks
+- Page speed analysis
 
 ## Requirements
 
@@ -79,21 +97,92 @@ PRISM_CACHE_TTL=3600
 
 ## Usage
 
+### Basic Schema Generation
+
 ```php
 use AiSeo\LaravelAiSeo\AiSeoFacade as AiSeo;
 
-// Generate Schema
+// Generate Article Schema
 $schema = AiSeo::generateArticleSchema([
     'title' => 'Your Title',
     'description' => 'Your Description',
     'url' => 'https://your-domain.com/article',
+    'author' => 'Author Name',
+    'published_at' => now(),
+    'modified_at' => now(),
+    'image' => 'https://your-domain.com/image.jpg',
 ]);
 
-// AI Analysis
-$analysis = AiSeo::analyzeContent($content, 'openai');
+// Generate Product Schema
+$productSchema = AiSeo::generateProductSchema([
+    'name' => 'Product Name',
+    'description' => 'Product Description',
+    'price' => 99.99,
+    'currency' => 'USD',
+    'availability' => 'InStock',
+    'brand' => 'Brand Name',
+]);
 
-// Real-time API
+// Generate Organization Schema
+$orgSchema = AiSeo::generateOrganizationSchema([
+    'name' => 'Company Name',
+    'url' => 'https://your-domain.com',
+    'logo' => 'https://your-domain.com/logo.png',
+    'sameAs' => [
+        'https://facebook.com/yourcompany',
+        'https://twitter.com/yourcompany',
+    ],
+]);
+```
+
+### AI-Powered Analysis
+
+```php
+// Content Analysis
+$analysis = AiSeo::analyzeContent($content, 'prism', [
+    'api_key' => config('prism.api_key'),
+    'model' => config('prism.models.default'),
+    'cache' => config('prism.cache.enabled'),
+]);
+
+// Generate SEO-optimized Title
+$title = AiSeo::generateSeoTitle($content, [
+    'max_length' => 60,
+    'include_brand' => true,
+]);
+
+// Generate Meta Description
+$description = AiSeo::generateMetaDescription($content, [
+    'max_length' => 160,
+    'include_keywords' => true,
+]);
+
+// Analyze Keyword Density
+$keywords = AiSeo::analyzeKeywordDensity($content, [
+    'min_length' => 3,
+    'exclude_common' => true,
+]);
+```
+
+### Real-time API Integration
+
+```php
+// API Route for Real-time Analysis
 Route::post('/api/seo/analyze', [SeoApiController::class, 'analyze']);
+
+// Blade Component Usage
+<x-aiseo::meta-tags 
+    :title="$title"
+    :description="$description"
+    :keywords="$keywords"
+    :schema="$schema"
+/>
+
+// Livewire Component
+<livewire:aiseo::seo-analyzer 
+    :content="$content"
+    :url="$url"
+/>
 ```
 
 ## AI Integration with Prism
