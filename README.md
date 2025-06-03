@@ -36,6 +36,22 @@ Advanced AI-powered SEO package for Laravel with JSON-LD, OpenGraph, and Schema.
 - Mobile optimization checks
 - Page speed analysis
 
+### 🛠️ Additional Features
+- Multi-language support with translations
+- Activity logging and monitoring
+- Backup and restore functionality
+- Analytics integration
+- Webhook support
+- Queue management
+- Caching and performance optimization
+- Permission management
+- API rate limiting
+- Error tracking and reporting
+- Uptime monitoring
+- Newsletter integration
+- Google Calendar integration
+- Slack notifications
+
 ## Requirements
 
 - PHP >= 8.1
@@ -59,8 +75,35 @@ composer require spatie/laravel-package-tools:^1.16 \
     spatie/schema-org:^3.0 \
     guzzlehttp/guzzle:^7.0 \
     prism-php/prism:^1.0 \
-    illuminate/support:^10.0|^11.0|^12.0 \
-    illuminate/contracts:^10.0|^11.0|^12.0
+    spatie/laravel-sitemap:^6.0 \
+    spatie/laravel-robots-middleware:^2.0 \
+    spatie/laravel-responsecache:^7.0 \
+    spatie/laravel-feed:^4.0 \
+    spatie/laravel-tags:^4.0 \
+    spatie/laravel-sluggable:^3.0 \
+    spatie/laravel-permission:^6.0 \
+    spatie/laravel-backup:^8.0 \
+    spatie/laravel-activitylog:^4.0 \
+    spatie/laravel-analytics:^4.0 \
+    spatie/laravel-query-builder:^5.0 \
+    spatie/laravel-collection-macros:^4.0 \
+    spatie/laravel-cors:^3.0 \
+    spatie/laravel-ignition:^2.0 \
+    spatie/laravel-paginateroute:^4.0 \
+    spatie/laravel-settings:^2.0 \
+    spatie/laravel-translatable:^6.0 \
+    spatie/laravel-validation-rules:^3.0 \
+    spatie/laravel-webhook-client:^3.0 \
+    spatie/laravel-webhook-server:^4.0 \
+    spatie/laravel-query-string:^2.0 \
+    spatie/laravel-route-attributes:^2.0 \
+    spatie/laravel-schemaless-attributes:^2.0 \
+    spatie/laravel-slack-alerts:^1.0 \
+    spatie/laravel-google-calendar:^2.0 \
+    spatie/laravel-newsletter:^5.0 \
+    spatie/laravel-uptime-monitor:^4.0 \
+    spatie/laravel-http-logger:^2.0 \
+    spatie/laravel-queueable-action:^2.0
 ```
 
 3. Publish the configuration files:
@@ -70,7 +113,7 @@ php artisan vendor:publish --tag=aiseo-config
 php artisan vendor:publish --tag=prism-config
 ```
 
-4. Run migrations (if any):
+4. Run migrations:
 
 ```bash
 php artisan migrate
@@ -93,6 +136,12 @@ PRISM_API_URL="https://api.prism.ai"
 PRISM_DEFAULT_MODEL="gpt-4"
 PRISM_CACHE_ENABLED=true
 PRISM_CACHE_TTL=3600
+
+# Additional Services
+GOOGLE_ANALYTICS_ID="your-ga-id"
+SLACK_WEBHOOK_URL="your-slack-webhook"
+GOOGLE_CALENDAR_ID="your-calendar-id"
+NEWSLETTER_API_KEY="your-newsletter-key"
 ```
 
 ## Usage
@@ -185,17 +234,31 @@ Route::post('/api/seo/analyze', [SeoApiController::class, 'analyze']);
 />
 ```
 
-## AI Integration with Prism
-
-This package supports advanced AI SEO analysis using [Prism PHP](https://github.com/prism-php/prism). You can use Prism as an AI provider for content analysis, keyword suggestions, and more.
-
-Example:
+### Additional Features
 
 ```php
-$analysis = AiSeo::analyzeContent($content, 'prism', [
-    'api_key' => config('prism.api_key'),
-    'model' => config('prism.models.default'),
-    'cache' => config('prism.cache.enabled'),
+// Activity Logging
+AiSeo::logActivity('SEO Analysis Completed', [
+    'url' => $url,
+    'score' => $score,
+]);
+
+// Analytics Integration
+AiSeo::trackPageView($url, [
+    'title' => $title,
+    'category' => 'blog',
+]);
+
+// Webhook Notifications
+AiSeo::notifyWebhook('seo.analysis.completed', [
+    'url' => $url,
+    'results' => $results,
+]);
+
+// Queue Management
+AiSeo::queueAnalysis($url, [
+    'priority' => 'high',
+    'retry' => 3,
 ]);
 ```
 
